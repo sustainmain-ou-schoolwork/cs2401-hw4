@@ -1,31 +1,25 @@
 CXX = g++
 CFLAGS = -g -Wall -std=c++11
-NOMAIN = dlist.o makinghtml.o swatches.o
+NOMAIN = 
 MAINOBJ = main1.o
 TESTOBJ = test.o
 OBJS = $(MAINOBJ) $(NOMAIN)
 TESTOBJS = $(TESTOBJ) $(NOMAIN)
 
-a.out: $(OBJS)
+a.out: $(OBJS) dnode.h dlist.h dlist.template node_iterator.h node_iterator.template
 	$(CXX) $(CFLAGS) $(OBJS) -o $@
 
-$(MAINOBJ): main1.cc dlist.h
+$(MAINOBJ): main1.cc dnode.h dlist.h dlist.template node_iterator.h node_iterator.template
 	$(CXX) $(CFLAGS) -c main1.cc -o $@
-
-dlist.o: dlist.cc dlist.h
-	$(CXX) $(CFLAGS) -c dlist.cc -o $@
-
-makinghtml.o: makinghtml.cc swatches.h
-	$(CXX) $(CFLAGS) -c makinghtml.cc -o $@
 
 swatches.o: swatches.cc swatches.h
 	$(CXX) $(CFLAGS) -c swatches.cc -o $@
 
 
-test: $(TESTOBJS)
+test: $(TESTOBJS) dnode.h dlist.h dlist.template node_iterator.h node_iterator.template
 	$(CXX) $(CFLAGS) $(TESTOBJS) -o $@
 
-$(TESTOBJ): test.cc
+$(TESTOBJ): test.cc dnode.h dlist.h dlist.template node_iterator.h node_iterator.template
 	$(CXX) $(CFLAGS) -c test.cc -o $@
 
 
