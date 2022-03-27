@@ -1,0 +1,19 @@
+template<class T>
+node_iterator<T> node_iterator<T>::operator ++ () {
+
+}
+
+template<class T>
+node_iterator<T> node_iterator<T>::operator ++ (int) {
+
+}
+
+template<class T>
+node_iterator<T> node_iterator<T>::operator -- () {
+
+}
+
+template<class T>
+node_iterator<T> node_iterator<T>::operator -- (int) {
+    
+}

@@ -1,0 +1,39 @@
+template<class T>
+dlist<T>::dlist() {
+
+}
+
+template<class T>
+dlist<T>::~dlist() {
+
+}
+
+template<class T>
+dlist<T>::dlist(const dlist& other) {
+
+}
+
+template<class T>
+void dlist<T>::operator = (const dlist& other) {
+
+}
+
+template<class T>
+void dlist<T>::front_insert(const dnode<T>& item) {
+
+}
+
+template<class T>
+void dlist<T>::rear_insert(const dnode<T>& item) {
+
+}
+
+template<class T>
+void dlist<T>::front_remove() {
+
+}
+
+template<class T>
+void dlist<T>::rear_remove() {
+    
+}
