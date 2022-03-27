@@ -7,10 +7,12 @@
 template<class T>
 class dlist {
     public:
+        typedef node_iterator<T> iterator;
+
         /**
          * @brief Construct a new dlist object.
          */
-        dlist();
+        dlist() {head = tail = NULL;}
 
         /**
          * @brief Destroy the dlist object.
@@ -37,14 +39,14 @@ class dlist {
          * 
          * @param item the item to be inserted
          */
-        void front_insert(const dnode<T>& item);
+        void front_insert(const T& item);
 
         /**
          * @brief Inserts an item at the rear of the dlist.
          * 
          * @param item the item to be inserted
          */
-        void rear_insert(const dnode<T>& item);
+        void rear_insert(const T& item);
 
         /**
          * @brief Removes an item from the front of the dlist.
@@ -55,6 +57,17 @@ class dlist {
          * @brief Removes an item from the rear of the dlist.
          */
         void rear_remove();
+
+
+        /**
+         * @brief Output the contents of the dlist to cout.
+         */
+        void show();
+
+        /**
+         * @brief Output the contents of the dlist in reverse order to cout.
+         */
+        void reverse_show();
 
     private:
         dnode<T>* head;

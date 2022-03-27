@@ -1,16 +1,25 @@
 template<class T>
-dlist<T>::dlist() {
-
-}
-
-template<class T>
 dlist<T>::~dlist() {
-
+    dnode<T>* previous = head;
+    while (head != NULL) {
+        previous = head;
+        head = head -> next();
+        delete previous;
+    }
 }
 
 template<class T>
 dlist<T>::dlist(const dlist& other) {
+    head = tail = NULL;
 
+    dnode<T>* cursor = other.head;
+    dnode<T> tmp;
+
+    while (cursor != NULL) {
+        tmp = dnode<T>(cursor -> data());
+        rear_insert(tmp);
+        cursor = cursor -> next();
+    }
 }
 
 template<class T>
@@ -19,13 +28,19 @@ void dlist<T>::operator = (const dlist& other) {
 }
 
 template<class T>
-void dlist<T>::front_insert(const dnode<T>& item) {
+void dlist<T>::front_insert(const T& item) {
 
 }
 
 template<class T>
-void dlist<T>::rear_insert(const dnode<T>& item) {
-
+void dlist<T>::rear_insert(const T& item) {
+    // if list is empty
+    if (head == NULL) {
+        head = tail = new dnode<T>(item);
+    }
+    else {
+        tail -> set_next(new dnode<T>(item, tail));
+    }
 }
 
 template<class T>
@@ -35,5 +50,15 @@ void dlist<T>::front_remove() {
 
 template<class T>
 void dlist<T>::rear_remove() {
+
+}
+
+template<class T>
+void dlist<T>::show() {
+    
+}
+
+template<class T>
+void dlist<T>::reverse_show() {
     
 }
