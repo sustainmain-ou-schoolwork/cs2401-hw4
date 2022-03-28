@@ -104,8 +104,7 @@ int main(){
         cout << endl << endl;
     } // copy has been destroyed
 
-// finding out if the list still works after the copy is destroyed
-/*
+    // finding out if the list still works after the copy is destroyed
     for(it1 = lis1.begin(); it1 != lis1.end(); ++it1)
         cout << *it1 << endl;
     cout << endl << endl;
@@ -113,6 +112,5 @@ int main(){
     for(it1 = lis1.r_begin(); it1 != lis1.r_end(); --it1)
         cout << *it1 << endl;
     cout << endl << endl;
-*/
     return 0;
 }
