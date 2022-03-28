@@ -19,7 +19,6 @@ int main(){
     dlist<int> lis1, lis2;
 
     // testing rear_insert and show
-    int tmp;
     for(int i = 0; i < 10; ++i)
         lis1.rear_insert(i);
     lis1.show();
@@ -55,6 +54,7 @@ int main(){
 
 // moving the iterator to the third element and putting 89 before that
 /*
+    int tmp;
     it1 = lis1.begin();
     for(int i = 0; i < 3; ++it1, ++i)
         ;

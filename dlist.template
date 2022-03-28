@@ -78,30 +78,31 @@ template<class T>
 void dlist<T>::front_remove() {
     dnode<T>* cursor = head;
 
+    // if list contains nodes
     if (head != NULL) {
         head = head -> next();
         head -> set_prev(NULL);
+        delete cursor;
     }
-
-    delete cursor;
 }
 
 template<class T>
 void dlist<T>::rear_remove() {
     dnode<T>* cursor = tail;
 
+    // if list contains nodes
     if (tail != NULL) {
         tail = tail -> prev();
         tail -> set_next(NULL);
+        delete cursor;
     }
-
-    delete cursor;
 }
 
 template<class T>
 void dlist<T>::show() {
     dnode<T>* cursor = head;
 
+    // run through each node in the list
     while (cursor != NULL) {
         std::cout << cursor -> data() << std::endl;
         cursor = cursor -> next();
@@ -112,6 +113,7 @@ template<class T>
 void dlist<T>::reverse_show() {
     dnode<T>* cursor = tail;
 
+    // run through each node in the list
     while (cursor != NULL) {
         std::cout << cursor -> data() << std::endl;
         cursor = cursor -> prev();
