@@ -51,9 +51,7 @@ int main(){
         cout << *it1 << endl;
     cout << endl << endl;
 
-
-// moving the iterator to the third element and putting 89 before that
-/*
+    // moving the iterator to the third element and putting 89 before that
     int tmp;
     it1 = lis1.begin();
     for(int i = 0; i < 3; ++it1, ++i)
@@ -69,10 +67,8 @@ int main(){
     for(it1 = lis1.r_begin(); it1 != lis1.r_end(); --it1)
         cout << *it1 << endl;
     cout << endl << endl;
-*/
 
-// traversing the second list from the rear and putting 256 in middle
-/*
+    // traversing the second list from the rear and putting 256 in middle
     tmp = 256;
     it1 = lis2.r_begin();
     for(int i = 0; i < lis2.size() / 2; --it1, ++i)
@@ -86,7 +82,6 @@ int main(){
     for(it1 = lis2.r_begin(); it1 != lis2.r_end(); --it1)
         cout << *it1 << endl;
     cout << endl << endl;
-*/
 
 // testing copy constructor and assignment operator
 /*

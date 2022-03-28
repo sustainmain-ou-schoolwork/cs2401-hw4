@@ -1,4 +1,10 @@
 template<class T>
+dlist<T>::dlist() {
+    head = tail = NULL;
+    nodeCount = 0;
+}
+
+template<class T>
 dlist<T>::~dlist() {
     dnode<T>* previous = head;
 
@@ -8,11 +14,14 @@ dlist<T>::~dlist() {
         head = head -> next();
         delete previous;
     }
+
+    nodeCount = 0;
 }
 
 template<class T>
 dlist<T>::dlist(const dlist& other) {
     head = tail = NULL;
+    nodeCount = 0;
 
     dnode<T>* cursor = other.head;
     dnode<T> tmp;
@@ -39,6 +48,7 @@ void dlist<T>::operator = (const dlist& other) {
         delete previous;
     }
     tail = NULL;
+    nodeCount = 0;
 
     // copy each node from other
     dnode<T>* cursor = other.head;
@@ -60,6 +70,8 @@ void dlist<T>::front_insert(const T& item) {
         head -> set_prev(new dnode<T>(item, NULL, head));
         head = head -> prev();
     }
+
+    nodeCount++;
 }
 
 template<class T>
@@ -72,6 +84,46 @@ void dlist<T>::rear_insert(const T& item) {
         tail -> set_next(new dnode<T>(item, tail));
         tail = tail -> next();
     }
+
+    nodeCount++;
+}
+
+template<class T>
+void dlist<T>::insert_before(iterator it, const T& item) {
+    if (head == NULL) {
+        // special case for empty list
+        head = tail = new dnode<T>(item);
+    }
+    else if (head == it.current) {
+        // special case for pointing at first node
+        head = new dnode<T>(item, NULL, it.current);
+        it.current -> set_prev(head);
+    }
+    else {
+        it.current -> prev() -> set_next(new dnode<T>(item, (it.current -> prev()), it.current));
+        it.current -> set_prev(it.current -> prev() -> next());
+    }
+
+    nodeCount++;
+}
+
+template<class T>
+void dlist<T>::insert_after(iterator it, const T& item) {
+    if (head == NULL) {
+        // special case for empty list
+        head = tail = new dnode<T>(item);
+    }
+    else if (tail == it.current) {
+        // special case for pointing at last node
+        tail = new dnode<T>(item, it.current, NULL);
+        it.current -> set_next(tail);
+    }
+    else {
+        it.current -> next() -> set_prev(new dnode<T>(item, it.current, (it.current -> next())));
+        it.current -> set_next(it.current -> next() -> prev());
+    }
+
+    nodeCount++;
 }
 
 template<class T>
@@ -82,7 +134,9 @@ void dlist<T>::front_remove() {
     if (head != NULL) {
         head = head -> next();
         head -> set_prev(NULL);
+
         delete cursor;
+        nodeCount--;
     }
 }
 
@@ -94,12 +148,14 @@ void dlist<T>::rear_remove() {
     if (tail != NULL) {
         tail = tail -> prev();
         tail -> set_next(NULL);
+
         delete cursor;
+        nodeCount--;
     }
 }
 
 template<class T>
-void dlist<T>::show() {
+void dlist<T>::show() const {
     dnode<T>* cursor = head;
 
     // run through each node in the list
@@ -110,7 +166,7 @@ void dlist<T>::show() {
 }
 
 template<class T>
-void dlist<T>::reverse_show() {
+void dlist<T>::reverse_show() const {
     dnode<T>* cursor = tail;
 
     // run through each node in the list

@@ -12,7 +12,7 @@ class dlist {
         /**
          * @brief Construct a new dlist object.
          */
-        dlist() {head = tail = NULL;}
+        dlist();
 
         /**
          * @brief Destroy the dlist object.
@@ -56,6 +56,12 @@ class dlist {
 
 
         /**
+         * @return the number of nodes in the dlist 
+         */
+        int size() const {return nodeCount;}
+
+
+        /**
          * @brief Inserts an item at the front of the dlist.
          * 
          * @param item the item to be inserted
@@ -68,6 +74,22 @@ class dlist {
          * @param item the item to be inserted
          */
         void rear_insert(const T& item);
+
+        /**
+         * @brief Inserts an item before an iterator.
+         * 
+         * @param it the iterator
+         * @param item the item to be inserted
+         */
+        void insert_before(iterator it, const T& item);
+
+        /**
+         * @brief Inserts an item after an iterator.
+         * 
+         * @param it the iterator
+         * @param item the item to be inserted
+         */
+        void insert_after(iterator it, const T& item);
 
         /**
          * @brief Removes an item from the front of the dlist.
@@ -83,16 +105,17 @@ class dlist {
         /**
          * @brief Output the contents of the dlist to cout.
          */
-        void show();
+        void show() const;
 
         /**
          * @brief Output the contents of the dlist in reverse order to cout.
          */
-        void reverse_show();
+        void reverse_show() const;
 
     private:
         dnode<T>* head;
         dnode<T>* tail;
+        size_t nodeCount;
 };
 
 #include "dlist.template"
