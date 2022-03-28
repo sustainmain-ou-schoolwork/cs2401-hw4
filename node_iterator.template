@@ -1,19 +1,25 @@
 template<class T>
 node_iterator<T> node_iterator<T>::operator ++ () {
-
+    current = current -> next();
+    return current;
 }
 
 template<class T>
 node_iterator<T> node_iterator<T>::operator ++ (int) {
-
+    node_iterator<T> original(*this);
+    current = current -> next();
+    return current;
 }
 
 template<class T>
 node_iterator<T> node_iterator<T>::operator -- () {
-
+    current = current -> prev();
+    return current;
 }
 
 template<class T>
 node_iterator<T> node_iterator<T>::operator -- (int) {
-    
+    node_iterator<T> original(*this);
+    current = current -> prev();
+    return current;
 }

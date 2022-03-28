@@ -41,20 +41,17 @@ int main(){
     lis1.reverse_show();
     cout << endl << endl;
 
-// declaring an iterator and using it to traverse list frontwards
-/*
+    // declaring an iterator and using it to traverse list frontwards
     dlist<int>::iterator it1;
     for(it1 = lis1.begin(); it1 != lis1.end(); ++it1)
         cout << *it1 << endl;
     cout << endl << endl;
-*/
 
-// using iterator to traverse list backwards
-/*
+    // using iterator to traverse list backwards
     for(it1 = lis1.r_begin(); it1 != lis1.r_end(); --it1)
         cout << *it1 << endl;
     cout << endl << endl;
-*/
+
 
 // moving the iterator to the third element and putting 89 before that
 /*

@@ -35,6 +35,27 @@ class dlist {
 
 
         /**
+         * @return an iterator pointing to the head
+         */
+        iterator begin() {return iterator(head);}
+
+        /**
+         * @return an iterator pointing to NULL
+         */
+        iterator end() {return iterator(NULL);}
+
+        /**
+         * @return an iterator pointing to the tail
+         */
+        iterator r_begin() {return iterator(tail);}
+
+        /**
+         * @return an iterator pointing to NULL
+         */
+        iterator r_end() {return iterator(NULL);}
+
+
+        /**
          * @brief Inserts an item at the front of the dlist.
          * 
          * @param item the item to be inserted

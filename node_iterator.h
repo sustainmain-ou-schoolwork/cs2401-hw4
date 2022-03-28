@@ -68,7 +68,7 @@ class node_iterator {
         node_iterator operator -- (int);
 
     private:
-        dnode<T> current;  // the node that the iterator is currently pointing to
+        dnode<T>* current;  // the node that the iterator is currently pointing to
 };
 
 #include "node_iterator.template"
