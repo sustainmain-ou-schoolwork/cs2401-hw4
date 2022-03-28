@@ -1,6 +1,8 @@
 template<class T>
 dlist<T>::~dlist() {
     dnode<T>* previous = head;
+
+    // delete each node
     while (head != NULL) {
         previous = head;
         head = head -> next();
@@ -15,6 +17,7 @@ dlist<T>::dlist(const dlist& other) {
     dnode<T>* cursor = other.head;
     dnode<T> tmp;
 
+    // copy each node from other
     while (cursor != NULL) {
         tmp = dnode<T>(cursor -> data());
         rear_insert(tmp);
@@ -24,7 +27,27 @@ dlist<T>::dlist(const dlist& other) {
 
 template<class T>
 void dlist<T>::operator = (const dlist& other) {
+    if (this == &other) {
+        return;
+    }
 
+    // delete all nodes
+    dnode<T>* previous;
+    while (head != NULL) {
+        previous = head;
+        head = head -> next();
+        delete previous;
+    }
+    tail = NULL;
+
+    // copy each node from other
+    dnode<T>* cursor = other.head;
+    dnode<T> tmp;
+    while (cursor != NULL) {
+        tmp = dnode<T>(cursor -> data());
+        rear_insert(tmp);
+        cursor = cursor -> next();
+    }
 }
 
 template<class T>
