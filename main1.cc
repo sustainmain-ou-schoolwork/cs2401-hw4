@@ -31,13 +31,11 @@ int main(){
     lis2.show();
     cout << endl << endl;
 
-// testing the front and rear removes
-/*
+    // testing the front and rear removes
     lis1.front_remove();
     lis1.rear_remove();
     lis1.show();
     cout << endl << endl;
-*/
 
 // testing if the list can be traversed in both directions
 /*

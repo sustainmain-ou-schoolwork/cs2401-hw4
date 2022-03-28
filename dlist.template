@@ -53,12 +53,26 @@ void dlist<T>::rear_insert(const T& item) {
 
 template<class T>
 void dlist<T>::front_remove() {
+    dnode<T>* cursor = head;
 
+    if (head != NULL) {
+        head = head -> next();
+        head -> set_prev(NULL);
+    }
+
+    delete cursor;
 }
 
 template<class T>
 void dlist<T>::rear_remove() {
+    dnode<T>* cursor = tail;
 
+    if (tail != NULL) {
+        tail = tail -> prev();
+        tail -> set_next(NULL);
+    }
+
+    delete cursor;
 }
 
 template<class T>
