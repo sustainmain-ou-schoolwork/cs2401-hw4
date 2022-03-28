@@ -83,28 +83,26 @@ int main(){
         cout << *it1 << endl;
     cout << endl << endl;
 
-// testing copy constructor and assignment operator
-/*
-{
-    dlist<int> copy(lis1);
-    lis1 = lis2;
-    for(it1 = lis1.begin(); it1 != lis1.end(); ++it1)
-        cout << *it1 << endl;
-    cout << endl << endl;
+    // testing copy constructor and assignment operator
+    {
+        dlist<int> copy(lis1);
+        lis1 = lis2;
+        for(it1 = lis1.begin(); it1 != lis1.end(); ++it1)
+            cout << *it1 << endl;
+        cout << endl << endl;
 
-    for(it1 = lis1.r_begin(); it1 != lis1.r_end(); --it1)
-        cout << *it1 << endl;
-    cout << endl << endl;
+        for(it1 = lis1.r_begin(); it1 != lis1.r_end(); --it1)
+            cout << *it1 << endl;
+        cout << endl << endl;
 
-    for(it1 = copy.begin(); it1 != copy.end(); ++it1)
-        cout << *it1 << endl;
-    cout << endl << endl;
+        for(it1 = copy.begin(); it1 != copy.end(); ++it1)
+            cout << *it1 << endl;
+        cout << endl << endl;
 
-    for(it1 = copy.r_begin(); it1 != copy.r_end(); --it1)
-        cout << *it1 << endl;
-    cout << endl << endl;
-} // copy has been destroyed
-*/
+        for(it1 = copy.r_begin(); it1 != copy.r_end(); --it1)
+            cout << *it1 << endl;
+        cout << endl << endl;
+    } // copy has been destroyed
 
 // finding out if the list still works after the copy is destroyed
 /*

@@ -23,12 +23,11 @@ dlist<T>::dlist(const dlist& other) {
     head = tail = NULL;
     nodeCount = 0;
 
-    dnode<T>* cursor = other.head;
-    dnode<T> tmp;
-
     // copy each node from other
+    dnode<T>* cursor = other.head;
+    T tmp;
     while (cursor != NULL) {
-        tmp = dnode<T>(cursor -> data());
+        tmp = cursor -> data();
         rear_insert(tmp);
         cursor = cursor -> next();
     }
@@ -52,9 +51,9 @@ void dlist<T>::operator = (const dlist& other) {
 
     // copy each node from other
     dnode<T>* cursor = other.head;
-    dnode<T> tmp;
+    T tmp;
     while (cursor != NULL) {
-        tmp = dnode<T>(cursor -> data());
+        tmp = cursor -> data();
         rear_insert(tmp);
         cursor = cursor -> next();
     }
