@@ -29,7 +29,14 @@ void dlist<T>::operator = (const dlist& other) {
 
 template<class T>
 void dlist<T>::front_insert(const T& item) {
-
+    // if list is empty
+    if (head == NULL) {
+        head = tail = new dnode<T>(item);
+    }
+    else {
+        head -> set_prev(new dnode<T>(item, NULL, head));
+        head = head -> prev();
+    }
 }
 
 template<class T>
@@ -40,6 +47,7 @@ void dlist<T>::rear_insert(const T& item) {
     }
     else {
         tail -> set_next(new dnode<T>(item, tail));
+        tail = tail -> next();
     }
 }
 
@@ -55,10 +63,20 @@ void dlist<T>::rear_remove() {
 
 template<class T>
 void dlist<T>::show() {
-    
+    dnode<T>* cursor = head;
+
+    while (cursor != NULL) {
+        std::cout << cursor -> data() << std::endl;
+        cursor = cursor -> next();
+    }
 }
 
 template<class T>
 void dlist<T>::reverse_show() {
-    
+    dnode<T>* cursor = tail;
+
+    while (cursor != NULL) {
+        std::cout << cursor -> data() << std::endl;
+        cursor = cursor -> prev();
+    }
 }
