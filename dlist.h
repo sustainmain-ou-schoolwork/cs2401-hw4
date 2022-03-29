@@ -120,9 +120,9 @@ class dlist {
         void reverse_show() const;
 
     private:
-        dnode<T>* head;
-        dnode<T>* tail;
-        size_t nodeCount;
+        dnode<T>* head;    // pointer to the first node
+        dnode<T>* tail;    // pointer to the last node
+        size_t nodeCount;  // number of nodes in the dlist
 };
 
 #include "dlist.template"
