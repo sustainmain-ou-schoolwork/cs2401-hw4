@@ -30,8 +30,8 @@ swatches.o: swatches.cc swatches.h
 test: $(TESTOBJS) $(TEMPLATEFILES)
 	$(CXX) $(CFLAGS) $(TESTOBJS) -o $@
 
-$(TESTOBJ): $(patsubst %.o, %.cc, $@) $(TEMPLATEFILES)
-	$(CXX) $(CFLAGS) -c $(patsubst %.o, %.cc, $@) -o $@
+$(TESTOBJ): test.cc $(TEMPLATEFILES)
+	$(CXX) $(CFLAGS) -c test.cc -o $@
 
 
 .PHONY: clean
