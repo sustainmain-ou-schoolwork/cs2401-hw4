@@ -101,6 +101,13 @@ class dlist {
          */
         void rear_remove();
 
+        /**
+         * @brief Removes an item specified by an iterator from the dlist.
+         * 
+         * @param it the iterator
+         */
+        void remove(iterator it);
+
 
         /**
          * @brief Output the contents of the dlist to cout.

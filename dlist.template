@@ -20,7 +20,18 @@ dlist<T>::~dlist() {
 
 template<class T>
 dlist<T>::dlist(const dlist& other) {
-    head = tail = NULL;
+    if (this == &other) {
+        return;
+    }
+
+    // delete all nodes
+    dnode<T>* previous;
+    while (head != NULL) {
+        previous = head;
+        head = head -> next();
+        delete previous;
+    }
+    tail = NULL;
     nodeCount = 0;
 
     // copy each node from other
@@ -131,8 +142,13 @@ void dlist<T>::front_remove() {
 
     // if list contains nodes
     if (head != NULL) {
-        head = head -> next();
-        head -> set_prev(NULL);
+        if (head -> next() == NULL) {
+            head = tail = NULL;
+        }
+        else {
+            head = head -> next();
+            head -> set_prev(NULL);
+        }
 
         delete cursor;
         nodeCount--;
@@ -145,12 +161,39 @@ void dlist<T>::rear_remove() {
 
     // if list contains nodes
     if (tail != NULL) {
-        tail = tail -> prev();
-        tail -> set_next(NULL);
+        if (tail -> prev() == NULL) {
+            head = tail = NULL;
+        }
+        else {
+            tail = tail -> prev();
+            tail -> set_next(NULL);
+        }
 
         delete cursor;
         nodeCount--;
     }
+}
+
+template<class T>
+void dlist<T>::remove(iterator it) {
+    // if the target node is the first node
+    if (head == it.current) {
+        head = it.current -> next();
+        head -> set_prev(NULL);
+    }
+    else {
+        it.current -> prev() -> set_next(it.current -> next());
+        it.current -> next() -> set_prev(it.current -> prev());
+    }
+
+    // if the target node is the last node
+    if (tail == it.current) {
+        tail = it.current -> prev();
+        head -> set_next(NULL);
+    }
+    
+    delete it.current;
+    nodeCount--;
 }
 
 template<class T>
