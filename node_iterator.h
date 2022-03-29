@@ -24,7 +24,7 @@ class node_iterator {
          * @param other the other node iterator
          * @return true if the node_iterators are pointing at the same node
          */
-        bool operator == (node_iterator other) const {return current == other.current;}
+        bool operator == (const node_iterator other) const {return current == other.current;}
 
         /**
          * @brief Checks if the node iterator is pointing to the same node as another node iterator.
@@ -32,7 +32,7 @@ class node_iterator {
          * @param other the other node iterator
          * @return true if the node_iterators aren't pointing at the same node
          */
-        bool operator != (node_iterator other) const {return current != other.current;}
+        bool operator != (const node_iterator other) const {return current != other.current;}
 
         /**
          * @return the data value of the current node
