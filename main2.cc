@@ -103,7 +103,6 @@ int main()
 
 	// destroy the original list by alternating between removal of first and 
 	// last items.  Print each item as it is removed
-	int counter = 0; 
 	while (swatches.size() > 0)
 	{
 		cout << *swatches.begin() << endl;
